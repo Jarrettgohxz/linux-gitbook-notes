@@ -11,6 +11,7 @@
 * [SUID, SGID, sticky bit](general/suid-sgid-sticky-bit.md)
 * [/dev/null](general/dev-null.md)
 * [xxd/hexdump](general/xxd-hexdump.md)
+* [environment variables](general/environment-variables.md)
 
 ## 🔧 bash
 
