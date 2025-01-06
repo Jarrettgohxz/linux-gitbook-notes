@@ -131,6 +131,15 @@ To execute from current directory, use a period . as the start directory
 $ find . [flags]
 ```
 
+To find from the root directory (`/`)
+
+```bash
+$ find / [flags]
+
+# eg.
+$ find / -name flag.txt 
+```
+
 #### Permission denied error message
 
 Sometimes there may be an error message returned similar to the following:&#x20;
@@ -256,5 +265,5 @@ excerpt from [https://man7.org/linux/man-pages/man1/find.1.html](https://man7.or
 
 ### locate
 
-
+...
 

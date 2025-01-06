@@ -12,6 +12,7 @@
 * [/dev/null](general/dev-null.md)
 * [xxd/hexdump](general/xxd-hexdump.md)
 * [environment variables](general/environment-variables.md)
+* [shebang](general/shebang.md)
 
 ## 🔧 bash
 
