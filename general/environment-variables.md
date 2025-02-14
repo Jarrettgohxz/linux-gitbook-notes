@@ -23,3 +23,21 @@ $ echo $SHELL
 $ echo $SHELL
 /usr/bin/zsh
 ```
+
+The `$0` is a special variable that shows the currently active shell
+
+```bash
+$ echo $SHELL
+/usr/bin/bash
+$ echo $0 
+/usr/bin/zsh
+
+# Eg. change to /usr/bin/zsh
+$ /usr/bin/zsh
+
+# from the zsh shell
+$ echo $SHELL
+/usr/bin/bash
+$ echo $0 
+/usr/bin/zsh
+```
