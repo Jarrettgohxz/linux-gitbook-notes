@@ -44,6 +44,11 @@
   * [/...](filesystem-and-directories/file-system/....md)
 * [chroot](filesystem-and-directories/chroot.md)
 
+***
+
+* [find](find.md)
+* [locate](locate.md)
+
 ## ⌚ processes & jobs
 
 * [cronjob](processes-and-jobs/cronjob.md)

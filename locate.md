@@ -1,0 +1,8 @@
+# locate
+
+**Basic command:**
+
+```bash
+```
+
+...
