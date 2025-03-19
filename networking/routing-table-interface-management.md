@@ -1,0 +1,6 @@
+# routing table/interface management
+
+```bash
+$ route ...
+$ ip route ...
+```
