@@ -85,3 +85,4 @@
 
 * [Introduction](networking/introduction.md)
 * [routing table/interface management](networking/routing-table-interface-management.md)
+* [/etc/hosts](networking/etc-hosts.md)
