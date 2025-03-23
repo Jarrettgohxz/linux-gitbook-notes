@@ -2,7 +2,7 @@
 
 ### /etc/hosts
 
-The `/etc/hosts` file acts as a local database to provide information for DNS resolutions, in the form of mapping hostnames (or fully qualified domain names (FQDN)) to IP address values.&#x20;
+The `/etc/hosts` file acts as a local database to provide information for DNS resolutions, in the form of mapping hostnames (or fully qualified domain names - _FQDN_) to IP address values.&#x20;
 
 **The following is the general format for each line in the file**
 
@@ -35,19 +35,19 @@ service: host/network
 
 > Note that `/etc/hosts.allow` takes precedence over the `/etc/hosts.deny` file
 
-Eg. Allow/deny access all traffic to the _sshd_ service
+Eg. Allow or deny access all traffic to the _sshd_ service
 
 ```vim
 sshd: ALL
 ```
 
-Eg. Allow/deny access from `*.example.com`: `test.example.com`, `1.example.com`, etc. to the _sshd_ service
+Eg. Allow or deny access to all traffic from `*.example.com`: `test.example.com`, `1.example.com`, etc. to the _sshd_ service
 
 ```vim
 sshd: .example.com 
 ```
 
-Eg. Allow/deny access from `192.168.1.*`: `192.168.1.1`, `192.168.1.88`, etc. to the _sshd_ service
+Eg. Allow or deny access to all traffic from `192.168.1.*`: `192.168.1.1`, `192.168.1.88`, etc. to the _sshd_ service
 
 ```vim
 sshd: 192.168.1. 
