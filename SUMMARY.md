@@ -35,7 +35,8 @@
 ## 📂 filesystem & directories
 
 * [File system](filesystem-and-directories/file-system/README.md)
-  * [/etc](filesystem-and-directories/file-system/etc.md)
+  * [/etc](filesystem-and-directories/file-system/etc/README.md)
+    * [/etc/hosts, /etc/hosts.allow, /etc/hosts.deny](filesystem-and-directories/file-system/etc/etc-hosts-etc-hosts.allow-etc-hosts.deny.md)
   * [/proc](filesystem-and-directories/file-system/proc.md)
   * [/usr](filesystem-and-directories/file-system/usr.md)
   * [/mnt](filesystem-and-directories/file-system/mnt.md)
@@ -85,4 +86,4 @@
 
 * [Introduction](networking/introduction.md)
 * [routing table/interface management](networking/routing-table-interface-management.md)
-* [/etc/hosts](networking/etc-hosts.md)
+* [/etc/hosts, /etc/hosts.allow, /etc/hosts.deny](networking/etc-hosts-etc-hosts.allow-etc-hosts.deny.md)
