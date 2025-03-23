@@ -12,7 +12,11 @@ The `/etc/hosts` file acts as a local database to provide information for DNS re
 
 Eg. Mapping hostname `jarrettgxz.com` to the IP address value of `8.8.8.8`
 
-&#x20;\> Multiple hostnames can be included for each IP address value&#x20;
+::: note
+
+Multiple hostnames can be included for each IP address value&#x20;
+
+:::
 
 * The second line maps the hostnames `example.com` and `example2.com` to the IP address `10.10.10.10`.
 
