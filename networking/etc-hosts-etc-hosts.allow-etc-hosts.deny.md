@@ -12,11 +12,7 @@ The `/etc/hosts` file acts as a local database to provide information for DNS re
 
 Eg. Mapping hostname `jarrettgxz.com` to the IP address value of `8.8.8.8`
 
-::: note
-
-Multiple hostnames can be included for each IP address value&#x20;
-
-:::
+> Multiple hostnames can be included for each IP address value&#x20;
 
 * The second line maps the hostnames `example.com` and `example2.com` to the IP address `10.10.10.10`.
 
@@ -34,7 +30,27 @@ The /etc/hosts.allow and /etc/hosts.deny files are used to allow or restrict acc
 **General format of entry**
 
 ```vim
+service: host/network
 ```
 
+> Note that `/etc/hosts.allow` takes precedence over the `/etc/hosts.deny` file
 
+Eg. Allow/deny access all traffic to the _sshd_ service
 
+```vim
+sshd: ALL
+```
+
+Eg. Allow/deny access from `*.example.com`: `test.example.com`, `1.example.com`, etc. to the _sshd_ service
+
+```vim
+sshd: .example.com 
+```
+
+Eg. Allow/deny access from `192.168.1.*`: `192.168.1.1`, `192.168.1.88`, etc. to the _sshd_ service
+
+```vim
+sshd: 192.168.1. 
+```
+
+{% embed url="https://linuxconfig.org/hosts-allow-format-and-example-on-linux" %}
