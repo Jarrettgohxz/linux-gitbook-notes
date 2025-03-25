@@ -6,13 +6,17 @@
 
 * [essentials](general/essentials.md)
 * [other commands](general/other-commands.md)
-* [sudo](general/sudo.md)
+* [Superuser-do (sudo)](general/superuser-do-sudo.md)
 * [SUID, SGID, sticky bit](general/suid-sgid-sticky-bit.md)
 * [/dev/null](general/dev-null.md)
-* [xxd/hexdump](general/xxd-hexdump.md)
 * [environment variables](general/environment-variables.md)
 * [special variables](general/special-variables.md)
 * [shebang](general/shebang.md)
+
+***
+
+* [daemon](daemon.md)
+* [spool](spool.md)
 
 ## 🔧 bash
 
@@ -27,6 +31,10 @@
 * [sed](text-processing/sed.md)
 * [awk](text-processing/awk.md)
 
+***
+
+* [xxd/hexdump](xxd-hexdump.md)
+
 ## text editors
 
 * [nano](text-editors/nano.md)
@@ -34,15 +42,20 @@
 
 ## 📂 filesystem & directories
 
-* [File system](filesystem-and-directories/file-system/README.md)
-  * [/etc](filesystem-and-directories/file-system/etc/README.md)
-    * [/etc/hosts, /etc/hosts.allow, /etc/hosts.deny](filesystem-and-directories/file-system/etc/etc-hosts-etc-hosts.allow-etc-hosts.deny.md)
-  * [/proc](filesystem-and-directories/file-system/proc.md)
-  * [/usr](filesystem-and-directories/file-system/usr.md)
-  * [/mnt](filesystem-and-directories/file-system/mnt.md)
-  * [/tmp](filesystem-and-directories/file-system/tmp.md)
-  * [/bin](filesystem-and-directories/file-system/bin.md)
-  * [/...](filesystem-and-directories/file-system/....md)
+* [Filesystem Hierachy Standard (FHS)](filesystem-and-directories/filesystem-hierachy-standard-fhs/README.md)
+  * [/etc](filesystem-and-directories/filesystem-hierachy-standard-fhs/etc/README.md)
+    * [hosts, hosts.allow, hosts.deny](filesystem-and-directories/filesystem-hierachy-standard-fhs/etc/hosts-hosts.allow-hosts.deny.md)
+  * [/dev](filesystem-and-directories/filesystem-hierachy-standard-fhs/dev.md)
+  * [/proc](filesystem-and-directories/filesystem-hierachy-standard-fhs/proc/README.md)
+    * [version](filesystem-and-directories/filesystem-hierachy-standard-fhs/proc/version.md)
+  * [/mnt](filesystem-and-directories/filesystem-hierachy-standard-fhs/mnt.md)
+  * [/opt](filesystem-and-directories/filesystem-hierachy-standard-fhs/opt.md)
+  * [/sbin](filesystem-and-directories/filesystem-hierachy-standard-fhs/sbin.md)
+  * [/lib](filesystem-and-directories/filesystem-hierachy-standard-fhs/lib.md)
+  * [/usr](filesystem-and-directories/filesystem-hierachy-standard-fhs/usr.md)
+  * [/tmp](filesystem-and-directories/filesystem-hierachy-standard-fhs/tmp.md)
+  * [/var](filesystem-and-directories/filesystem-hierachy-standard-fhs/var.md)
+  * [/bin](filesystem-and-directories/filesystem-hierachy-standard-fhs/bin.md)
 * [chroot](filesystem-and-directories/chroot.md)
 
 ***
@@ -77,6 +90,10 @@
 
 * [lsblk](storage/lsblk.md)
 * [mount/umount](storage/mount-umount.md)
+
+***
+
+* [df/du](df-du.md)
 
 ## user management
 
