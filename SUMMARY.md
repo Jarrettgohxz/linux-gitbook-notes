@@ -15,7 +15,6 @@
 
 ***
 
-* [daemon](daemon.md)
 * [spool](spool.md)
 
 ## 🔧 bash
@@ -45,6 +44,15 @@
 * [Filesystem Hierachy Standard (FHS)](filesystem-and-directories/filesystem-hierachy-standard-fhs/README.md)
   * [/etc](filesystem-and-directories/filesystem-hierachy-standard-fhs/etc/README.md)
     * [hosts, hosts.allow, hosts.deny](filesystem-and-directories/filesystem-hierachy-standard-fhs/etc/hosts-hosts.allow-hosts.deny.md)
+    * [/cron.d](filesystem-and-directories/filesystem-hierachy-standard-fhs/etc/cron.d.md)
+    * [/httpd](filesystem-and-directories/filesystem-hierachy-standard-fhs/etc/httpd.md)
+    * [/samba.d](filesystem-and-directories/filesystem-hierachy-standard-fhs/etc/samba.d.md)
+    * [hostname](filesystem-and-directories/filesystem-hierachy-standard-fhs/etc/hostname.md)
+    * [crontab](filesystem-and-directories/filesystem-hierachy-standard-fhs/etc/crontab.md)
+    * [shadow](filesystem-and-directories/filesystem-hierachy-standard-fhs/etc/shadow.md)
+    * [passwd](filesystem-and-directories/filesystem-hierachy-standard-fhs/etc/passwd.md)
+    * [profile](filesystem-and-directories/filesystem-hierachy-standard-fhs/etc/profile.md)
+    * [services](filesystem-and-directories/filesystem-hierachy-standard-fhs/etc/services.md)
   * [/dev](filesystem-and-directories/filesystem-hierachy-standard-fhs/dev.md)
   * [/proc](filesystem-and-directories/filesystem-hierachy-standard-fhs/proc/README.md)
     * [version](filesystem-and-directories/filesystem-hierachy-standard-fhs/proc/version.md)
@@ -66,6 +74,7 @@
 ## ⌚ processes & jobs
 
 * [cronjob](processes-and-jobs/cronjob.md)
+* [daemon](processes-and-jobs/daemon.md)
 
 ## ⛓️ system
 
