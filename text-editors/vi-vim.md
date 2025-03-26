@@ -49,17 +49,27 @@ Press `:` from the normal mode. This mode allows us to run several commands with
 
 _**Note**_: The symbol `%` represents the current filename without any extensions
 
-Eg. If vi/vim is currently opened with a C program file `test.c`
+#### Examples
+
+Eg. Compile and execute a C program file `test.c` (that is currently opened)
 
 ```vim
 :! gcc test.c -o test && ./test
 :! gcc %.c -o % && ./%
 ```
 
-Eg. With a Python file `test.py`
+Eg. Execute a Python program file `test.py` (that is currently opened)
 
 ```vim
 :! python3 test.py
 :! python3 %.py
+```
+
+Eg. Change permissions and execute a `.sh` (shell) script `test.sh`
+
+```vim
+:! ls -l
+:! chmod +x test.sh
+:! ./%
 ```
 
