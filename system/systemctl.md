@@ -1,12 +1,14 @@
 # systemctl
 
-### Control system process/daemons
+### Controlling systemd services and daemons
 
 ```bash
-$ systemctl stop [process/daemon]
-$ systemctl start [process/daemon]
-$ systemctl restart [process/daemon]
-$ systemctl status [process/daemon]
+$ systemctl stop [service/daemon]
+$ systemctl start [service/daemon]
+$ systemctl restart [service/daemon]
+$ systemctl status [service/daemon]
+$ systemctl enable [service/daemon]
+$ systemctl disable [service/daemon]
 ```
 
 #### Examples
