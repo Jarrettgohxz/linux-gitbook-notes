@@ -25,7 +25,7 @@ Eg. Mapping hostname `jarrettgxz.com` to the IP address value of `8.8.8.8`
 
 ### /etc/hosts.allow and /etc/hosts.deny
 
-The /etc/hosts.allow and /etc/hosts.deny files are used to allow or restrict access to local services for specific IP addresses or hostnames.&#x20;
+The `/etc/hosts.allow` and `/etc/hosts.deny` files are used to allow or restrict access to local services for specific IP addresses or hostnames.&#x20;
 
 **General format of entry**
 
