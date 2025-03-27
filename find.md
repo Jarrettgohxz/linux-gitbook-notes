@@ -8,13 +8,13 @@ To search for files within a directory hierarchy
 $ find <start_directory> [flags]
 ```
 
-To execute from current directory, use a period . as the start directory
+To search from the current directory, use a period `.` as the start directory
 
 ```bash
 $ find . [flags]
 ```
 
-To find from the root directory (`/`)
+To search from the root directory (`/`)
 
 ```bash
 $ find / [flags]
