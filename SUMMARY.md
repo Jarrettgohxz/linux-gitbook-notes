@@ -80,6 +80,7 @@
 
 * [systemctl](system/systemctl.md)
 * [hostname](system/hostname.md)
+* [systemd](system/systemd.md)
 
 ## 🗃️ media
 
