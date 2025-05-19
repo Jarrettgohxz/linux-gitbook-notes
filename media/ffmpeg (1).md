@@ -18,3 +18,12 @@
 $ ffmpeg -i [file_to_convert].mov -vcodec libx264 -acodec aac [output_file_name].mp4
 ```
 
+
+
+**Extract portion of  video**
+
+Eg. Extract video portion from 10 minutes 05 seconds to 10 minutes 20 seconds (15 seconds video length from `-t` flag) from **test.mp4**, and store to output file **output.mp4**.
+
+```
+$ ffmpeg -ss 00:10:05 -t 00:00:15 -i 'test.mp4' -vcodec copy -acodec copy output.mp4
+```
