@@ -30,6 +30,25 @@ $ aa-autodep [path-to-binary]
 $ aa-autodep /usr/bin/firefox
 ```
 
+#### Default profile
+
+> Generated on Kali Linux (Kali 6.12.25-1kali1 (2025-04-30))
+
+```vim
+abi <abi/4.0>,
+
+include <tunables/global>
+
+/usr/bin/firefox flags=(complain) {
+  include <abstractions/base>
+  include <abstractions/bash>
+
+  /usr/bin/dash ix,
+  /usr/bin/firefox r,
+
+}
+```
+
 ### 2. Optionally, load the profile using `aa-genprof` or `aa-logprof`
 
 > The `aa-genprof` tool uses `aa-logprof` under the hood to augment the profile
@@ -38,12 +57,27 @@ $ aa-autodep /usr/bin/firefox
 
 {% embed url="https://manpages.ubuntu.com/manpages/noble/en/man8/aa-genprof.8.html" %}
 
+#### Generate a new profile according to logs from the specified log-file
+
+> For /usr/bin/firefox, I used `aa-autodep` instead of `aa-genprof` to generate the starting profile. This is because there are too many file reads from firefox (as logged in the log-file), thus `aa-genprof` requires too much output.
+
 ```bash
 $ aa-genprof [executable] --file /path/to/logfile
 
 # eg.
 $ aa-genprof /usr/bin/firefox --file /var/log/syslog
 ```
+
+#### Update the existing profile
+
+```bash
+$ aa-logprof --file /path/to/logfile
+
+# eg.
+$ aa-logprof-file /var/log/syslog
+```
+
+
 
 ### 3. View and edit the profile
 
