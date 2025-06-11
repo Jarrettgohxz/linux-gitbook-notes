@@ -54,6 +54,8 @@ $ aa-autodep /usr/bin/firefox
 
 > Generated on Kali Linux (Kali 6.12.25-1kali1 (2025-04-30))
 
+> usr.bin.firefox
+
 ```vim
 abi <abi/4.0>,
 
@@ -77,9 +79,9 @@ include <tunables/global>
 
 {% embed url="https://manpages.ubuntu.com/manpages/noble/en/man8/aa-genprof.8.html" %}
 
-#### Generate a new profile according to logs from the specified log-file
+#### Generate a new profile according to logs from the specified log file
 
-> For /usr/bin/firefox, I used `aa-autodep` instead of `aa-genprof` to generate the starting profile. This is because there are too many file reads from firefox (as logged in the log-file), thus `aa-genprof` requires too much output.
+> For `/usr/bin/firefox`, I used `aa-autodep` instead of `aa-genprof` to generate the starting profile. This is because there are too many file reads from firefox (as shown in the log file), thus `aa-genprof` displays too much output.
 
 ```bash
 $ aa-genprof [executable] --file /path/to/logfile
@@ -94,12 +96,12 @@ $ aa-genprof /usr/bin/firefox --file /var/log/syslog
 $ aa-logprof --file /path/to/logfile
 
 # eg.
-$ aa-logprof-file /var/log/syslog
+$ aa-logprof --file /var/log/syslog
 ```
 
 
 
-### 3. View and edit the profile
+### 3. View the profile and manually edit the configurations
 
 ```bash
 $ cd /etc/apparmor.d
