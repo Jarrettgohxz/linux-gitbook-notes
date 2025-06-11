@@ -230,15 +230,15 @@ From the error messages, we can update the profile linked to the executable acco
 Given the following error message:
 
 {% code overflow="wrap" %}
-```
-xxx ...: audit: xxx : apparmor="DENIED" operation="open" class="file" profile="firefox" name="/proc/xxxx/xxxx" ... comm="firefox-esr" requested_mask="w" denied_mask="w" 
+```log
+xxxx : apparmor="DENIED" operation="open" class="file" profile="firefox" name="/proc/xxxx/xxxx" ... comm="firefox-esr" requested_mask="w" denied_mask="w" 
 ```
 {% endcode %}
 
 The message tells us that `firefox-esr` is trying to write (`w`) to `/proc/xxxx/xxxx`, but got _DENIED_ access. To fix this issue, we can add a rule to the profile:
 
-```bash
-/proc/** w 
+```vim
+/proc/** w,
 ```
 
 For more information on file pattern matching, refer to the documentation on the _**File Globbing**_ section:
@@ -247,11 +247,11 @@ For more information on file pattern matching, refer to the documentation on the
 
 ### 7. Other useful commands
 
-> Refer to the documentation link above
+> Refer to the documentation link at the start of this page
 
 ```bash
 $ aa-disable 
-$ aa-aduit
+$ aa-audit
 ...
 ```
 
