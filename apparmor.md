@@ -158,6 +158,10 @@ profile firefox /{usr/{bin,lib/firefox{,-esr}},opt/firefox}/firefox{,-esr,-bin}
   # DENY
   # ~~~~~~~~~~~~~~~~~~~~~
   deny /etc/ssh/** rwkmx,
+  deny /etc/passwd rwkmx,
+  deny /etc/network/** rwkmx,
+  deny /etc/NetworkManager/** rwkmx,
+  deny /proc/version r,
 
   # ~~~~~~~~~~~~~~~~~~~~~
   # CAPABILITY
