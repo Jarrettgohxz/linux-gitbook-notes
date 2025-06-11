@@ -64,6 +64,7 @@
   * [/tmp](filesystem-and-directories/filesystem-hierachy-standard-fhs/tmp.md)
   * [/var](filesystem-and-directories/filesystem-hierachy-standard-fhs/var.md)
   * [/bin](filesystem-and-directories/filesystem-hierachy-standard-fhs/bin.md)
+  * [/run](filesystem-and-directories/filesystem-hierachy-standard-fhs/run.md)
 * [chroot](filesystem-and-directories/chroot.md)
 
 ***
