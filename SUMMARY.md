@@ -94,6 +94,7 @@
 
 ***
 
+* [firejail](firejail.md)
 * [apparmor](apparmor.md)
 
 ## 📦 Package management
