@@ -110,7 +110,7 @@ $ cd /etc/apparmor.d
 $ vim usr.bin.firefox
 
 # ********************************
-# ** my current profile
+# ** My current profile
 
 abi <abi/4.0>,
 
@@ -119,37 +119,65 @@ include <tunables/global>
 profile firefox /{usr/{bin,lib/firefox{,-esr}},opt/firefox}/firefox{,-esr,-bin}
 
 {
-    
   userns,
+  
+  #include <abstractions/base> # seems to not be required
 
-  include <abstractions/base>
-  #include <abstractions/lightdm>
-  #include <abstractions/postfix-common>
-  # include <abstractions/bash>
+  # ~~~~~~~~~~~~~~~~~~~~~
+  # ALLOW FIREFOX-ESR FILES
+  # ~~~~~~~~~~~~~~~~~~~~~
+  /usr/lib/firefox-esr/firefox-esr ix,
+  /usr/lib/firefox-esr/glxtest ix,
+  /usr/lib/firefox-esr/minidump-analyzer ix,
 
-  #/usr/bin/dash ix,i
-  #/usr/bin/firefox rix,
-  #/usr/lib/firefox-esr/firefox-esr rix,
-
-  capability sys_admin,
-
+  # ~~~~~~~~~~~~~~~~~~~~~
+  # ALLOW HOME DIR FILES
+  # ~~~~~~~~~~~~~~~~~~~~~
   @{HOME}/.local/share/** wrmkix,
   @{HOME}/.config/** wrmkix,
-  @{HOME}/*/.cache/.mozilla/** r,
-  @{HOME}/.cache/** wrmkix,
+  @{HOME}/.cache/.mozilla/** r,
   @{HOME}/.mozilla/** rwmkix,
- /proc/** w,
+ 
+  # ~~~~~~~~~~~~~~~~~~~~~
+  # ALLOW OTHER FILES - to refined: make the file accesses more fine-tuned
+  # ~~~~~~~~~~~~~~~~~~~~~
+  owner /tmp/** rwkmix, 
+  /tmp/firefox-esr/** rwkmix,
+  
+  /etc/** r,
+  /proc/** rw,
+  /usr/share/** r,
+  /usr/local/share/** r,
+  /var/cache/fontconfig/** r,
+  /sys/** r,
+  /var/** r,
+  /dev/** rw,
+  owner /run/user/@{uid}/** rw, # owner keyword
+  
+  # ~~~~~~~~~~~~~~~~~~~~~
+  # DENY
+  # ~~~~~~~~~~~~~~~~~~~~~
+  deny /etc/ssh/** rwkmx,
 
-  #/home/*/.cache/.mozilla/** mrixwk,
-  #/home/*/.cache/** mrixwk,
-  #/home/*/.mozilla/** mrixwk,
-  #/proc/** mrwk,
-  #/usr/lib/firefox-esr/firefox-esr mrixwk,
-  #/usr/lib/firefox-esr/firefox-esr mrixwk,
-  #/usr/lib/firefox-esr/glxtest mrixwk,
+  # ~~~~~~~~~~~~~~~~~~~~~
+  # CAPABILITY
+  # ~~~~~~~~~~~~~~~~~~~~~
+  capability sys_admin,
+  capability sys_chroot,
+
+  # ~~~~~~~~~~~~~~~~~~~~~
+  # NETWORK
+  # ~~~~~~~~~~~~~~~~~~~~~
+  # network netlink raw, # ~raw sockets - requested by Firefox, but not neccessary
+  network inet dgram, # UDP
+  network inet stream, # TCP
+
+  # Site-specific additions and overrides. See local/README for details.
+  include if exists <local/firefox>
+}
+
  
   # deny /proc/version rwlk,
-
 }
 # ********************************
 
@@ -223,6 +251,12 @@ $ cat /var/log/syslog | grep [executable]  | grep -P T[timestamp]\w*
 # eg. firefox at 1800 HRS
 $ cat /var/log/syslog | grep firefox  | grep -P T18:\w* 
 $ cat /var/log/syslog | grep firefox  | grep DENIED | grep -P T18:\w* # view DENIED 
+```
+
+#### View the logs in real-time
+
+```bash
+$ tail -f /var/log/syslog | grep -E 'firefox|DENIED' 
 ```
 
 From the error messages, we can update the profile linked to the executable accordingly.
