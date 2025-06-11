@@ -91,6 +91,10 @@
 
 * [ufw](security/ufw.md)
 
+***
+
+* [apparmor](apparmor.md)
+
 ## 📦 Package management
 
 * [dpkg](package-management/dpkg.md)
