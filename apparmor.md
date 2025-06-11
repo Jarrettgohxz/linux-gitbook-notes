@@ -17,6 +17,26 @@ $ systemctl start apparmor
 $ apt install apparmor-utils
 ```
 
+
+
+### Default firefox profile shipped with Kali Linux
+
+```vim
+# This profile allows everything and only exists to give the
+# application a name instead of having the label "unconfined"
+
+abi <abi/4.0>,
+include <tunables/global>
+
+profile firefox /{usr/lib/firefox{,-esr,-beta,-devedition,-nightly},opt/firefox}/firefox{,-esr,-bin} flags=(unconfined) {
+  userns,
+
+  # Site-specific additions and overrides. See local/README for details.
+  include if exists <local/firefox>
+}
+
+```
+
 ### 1. Generate a starting profile
 
 > Creates a profile in `/etc/apparmor.d`  with the naming convention where the slashes (`/`) are converted to dots (`.`)
@@ -109,16 +129,14 @@ profile firefox /{usr/{bin,lib/firefox{,-esr}},opt/firefox}/firefox{,-esr,-bin}
   #/usr/bin/firefox rix,
   #/usr/lib/firefox-esr/firefox-esr rix,
 
-  #capability sys_admin,
+  capability sys_admin,
 
   @{HOME}/.local/share/** wrmkix,
   @{HOME}/.config/** wrmkix,
   @{HOME}/*/.cache/.mozilla/** r,
   @{HOME}/.cache/** wrmkix,
   @{HOME}/.mozilla/** rwmkix,
- #/proc/** w,
- 
-  /home/jarrettgxz/.mozilla/firefox/0le77730.default-esr/extensions/** rwkix,
+ /proc/** w,
 
   #/home/*/.cache/.mozilla/** mrixwk,
   #/home/*/.cache/** mrixwk,
