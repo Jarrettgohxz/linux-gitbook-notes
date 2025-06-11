@@ -183,7 +183,51 @@ X profiles are in enforce mode.
     ...
 ```
 
-### 6. Other commands
+### 6. View and update the profile according to the logs
+
+After loading the profile into the kernel, we can run the application (controlled by `apparmor` in **enforce** mode), and view the logs for any _DENIED_ error messages:
+
+#### Install required packages
+
+```bash
+$ apt install rsyslog
+$ systemctl start rsyslog
+
+```
+
+#### Filter the logs
+
+```bash
+$ cat /var/log/syslog | grep [executable]  | grep -P T[timestamp]\w* 
+
+# eg. firefox at 1800 HRS
+$ cat /var/log/syslog | grep firefox  | grep -P T18:\w* 
+$ cat /var/log/syslog | grep firefox  | grep DENIED | grep -P T18:\w* # view DENIED 
+```
+
+From the error messages, we can update the profile linked to the executable accordingly.
+
+#### Example
+
+Given the following error message:
+
+{% code overflow="wrap" %}
+```
+xxx ...: audit: xxx : apparmor="DENIED" operation="open" class="file" profile="firefox" name="/proc/xxxx/xxxx" ... comm="firefox-esr" requested_mask="w" denied_mask="w" 
+```
+{% endcode %}
+
+The message tells us that `firefox-esr` is trying to write (`w`) to `/proc/xxxx/xxxx`, but got _DENIED_ access. To fix this issue, we can add a rule to the profile:
+
+```bash
+/proc/** w 
+```
+
+For more information on file pattern matching, refer to the documentation on the _**File Globbing**_ section:
+
+{% embed url="https://gitlab.com/apparmor/apparmor/-/wikis/QuickProfileLanguage" %}
+
+### 7. Other useful commands
 
 > Refer to the documentation link above
 
