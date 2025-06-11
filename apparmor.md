@@ -86,28 +86,52 @@ $ cd /etc/apparmor.d
 
 # /usr/bin/firefox -> usr.bin.firefox
 $ vim usr.bin.firefox
+
+# ********************************
+# ** my current profile
+
 abi <abi/4.0>,
 
 include <tunables/global>
 
-/usr/lib/firefox-esr/firefox-esr {
+profile firefox /{usr/{bin,lib/firefox{,-esr}},opt/firefox}/firefox{,-esr,-bin}
+
+{
+    
+  userns,
+
   include <abstractions/base>
-  include <abstractions/lightdm>
-  include <abstractions/postfix-common>
+  #include <abstractions/lightdm>
+  #include <abstractions/postfix-common>
+  # include <abstractions/bash>
 
-  capability sys_admin,
+  #/usr/bin/dash ix,i
+  #/usr/bin/firefox rix,
+  #/usr/lib/firefox-esr/firefox-esr rix,
 
-  /home/*/.cache/.mozilla/** mrixwk,
-  /home/*/.cache/** mrixwk,
-  /home/*/.mozilla/** mrixwk,
-  /proc/** mrwk,
-  /usr/lib/firefox-esr/firefox-esr mrixwk,
-  /usr/lib/firefox-esr/firefox-esr mrixwk,
-  /usr/lib/firefox-esr/glxtest mrixwk,
-  
-  deny /proc/version rwlk,
+  #capability sys_admin,
+
+  @{HOME}/.local/share/** wrmkix,
+  @{HOME}/.config/** wrmkix,
+  @{HOME}/*/.cache/.mozilla/** r,
+  @{HOME}/.cache/** wrmkix,
+  @{HOME}/.mozilla/** rwmkix,
+ #/proc/** w,
+ 
+  /home/jarrettgxz/.mozilla/firefox/0le77730.default-esr/extensions/** rwkix,
+
+  #/home/*/.cache/.mozilla/** mrixwk,
+  #/home/*/.cache/** mrixwk,
+  #/home/*/.mozilla/** mrixwk,
+  #/proc/** mrwk,
+  #/usr/lib/firefox-esr/firefox-esr mrixwk,
+  #/usr/lib/firefox-esr/firefox-esr mrixwk,
+  #/usr/lib/firefox-esr/glxtest mrixwk,
+ 
+  # deny /proc/version rwlk,
 
 }
+# ********************************
 
 ```
 
@@ -133,6 +157,16 @@ $ aa-enforce [profile]
 $ apparmor_parse -r /etc/apparmor.d/usr.bin.firefox
 $ aa-enforce /usr/bin/firefox
 ```
+
+#### apparmor\_parser
+
+Used to compile the profile (understood by the kernel), and load it into the kernel
+
+* `-r` flag: To update the existing profile in the kernel
+
+> This flag is required if an AppArmor definition by the same name already exists in the kernel; used to replace the definition already in the kernel with the definition given on standard input.
+
+{% embed url="https://manpages.ubuntu.com/manpages/lunar/man8/apparmor_parser.8.html" %}
 
 ### 5. View the status
 
