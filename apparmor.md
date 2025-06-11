@@ -203,7 +203,7 @@ X profiles are in enforce mode.
     ...
 ```
 
-### 6. View and update the profile according to the logs
+### 6. View the logs and manually update the profile
 
 After loading the profile into the kernel, we can run the application (controlled by `apparmor` in **enforce** mode), and view the logs for any _DENIED_ error messages:
 
@@ -247,7 +247,17 @@ For more information on file pattern matching, refer to the documentation on the
 
 {% embed url="https://gitlab.com/apparmor/apparmor/-/wikis/QuickProfileLanguage" %}
 
-### 7. Other useful commands
+### 7. Verify the apparmor configurations
+
+...
+
+#### Example
+
+Given the configurations in place for firefox, we can now open up a window and check if the file restrictions are working.
+
+...
+
+### 8. Other useful commands
 
 > Refer to the documentation link at the start of this page
 
