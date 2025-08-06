@@ -10,6 +10,8 @@ For more information of any commands discussed in this chapter, do a search (on 
 
 {% embed url="https://docs.google.com/document/d/14H_K39BlwkBasjlJRb_w4IFvvoU_mHay8ecqMmS0O18/edit" %}
 
+[![GitHub stars](https://img.shields.io/github/stars/Jarrettgohxz/linux-gitbook-notes?style=social)](https://github.com/Jarrettgohxz/linux-gitbook-notes/)
+
 #### Important notice <a href="#shell-prompt-convention" id="shell-prompt-convention"></a>
 
 1. You may notice that there are some empty pages/sub-pages with only a title. These pages are simply a work-in-progress, and functions as a way for me to remind myself on pending topics for research and experiments in the future.
