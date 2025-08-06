@@ -10,6 +10,11 @@ For more information of any commands discussed in this chapter, do a search (on 
 
 {% embed url="https://docs.google.com/document/d/14H_K39BlwkBasjlJRb_w4IFvvoU_mHay8ecqMmS0O18/edit" %}
 
+#### Important notice <a href="#shell-prompt-convention" id="shell-prompt-convention"></a>
+
+1. You may notice that there are some empty pages/sub-pages with only a title. These pages are simply a work-in-progress, and functions as a way for me to remind myself on pending topics for research and experiments in the future.
+2. The content present in this documentation is based on my understanding and research on that particular topic. Thus, some of the newly added content may not be entirely accurate, and will be refined over time as I experiment more on it.
+
 #### Note on shell prompt convention <a href="#shell-prompt-convention" id="shell-prompt-convention"></a>
 
 The `$` symbol will be used to indicate a shell prompt (defaulting to _Bash_). Some commands may require _root_ privileges via the `sudo` command. However, this documentation will not explicitly specify when `sudo` is required — it should be prepended where necessary.
