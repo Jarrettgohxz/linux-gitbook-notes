@@ -113,6 +113,7 @@
 
 ## user management
 
+* [useradd](user-management/useradd.md)
 * [chsh](user-management/chsh.md)
 
 ## Networking
