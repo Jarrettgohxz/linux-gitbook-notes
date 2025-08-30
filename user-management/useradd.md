@@ -9,9 +9,9 @@
 Suppose we want to create a user named `tunneluser` that is used primarily to accept SSH  connections (eg. for tunneling, etc.). This user should have no access to the shell console.
 
 ```shell
-useradd tunneluser -m -d -/home/tunneluser -s /bin/true
+$ useradd tunneluser -m -d -/home/tunneluser -s /bin/true
 # or 
-useradd tunneluser --create-home --home-dir /home/tunneluser --shell /bin/true
+$ useradd tunneluser --create-home --home-dir /home/tunneluser --shell /bin/true
 ```
 
 * `-m/--create-home` : create the user's home directory if it does not exit
@@ -22,5 +22,9 @@ useradd tunneluser --create-home --home-dir /home/tunneluser --shell /bin/true
 
 {% embed url="https://man7.org/linux/man-pages/man1/true.1.html" %}
 
+Next, we have to make sure to set a _**strong**_ password to prevent anyone from simply connecting to our machine via SSH:
 
+```sh
+$ passwd tunneluser
+```
 
