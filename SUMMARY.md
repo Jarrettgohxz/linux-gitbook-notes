@@ -76,6 +76,7 @@
 
 * [cronjob](processes-and-jobs/cronjob.md)
 * [daemon](processes-and-jobs/daemon.md)
+* [pkill, kill](processes-and-jobs/pkill-kill.md)
 
 ## ⛓️ system
 
