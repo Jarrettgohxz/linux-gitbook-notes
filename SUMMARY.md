@@ -23,6 +23,8 @@
 * [redirection](bash/redirection.md)
 * [loop](bash/loop.md)
 * [.bashrc](bash/.bashrc.md)
+* [scripting](bash/scripting/README.md)
+  * [Web fuzzing](bash/scripting/web-fuzzing.md)
 
 ## text processing
 
