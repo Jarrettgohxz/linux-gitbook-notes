@@ -12,11 +12,6 @@ The here document (`<<`) can be used to pass a multi-line block of text or code 
 [COMMAND] << 'DELIMITER'
     HERE-DOCUMENT
 DELIMITER
-
-# eg.
-[COMMAND] << 'END'
-    HERE-DOCUMENT
-END
 ```
 
 ### 1.11 Example with `cat`
@@ -46,15 +41,25 @@ b. `sys.stdout.write`&#x20;
 #### Example 1
 
 ```bash
+python3 - << 'EOF' 
+print("Hello here doc!")
+EOF
+```
+
+* Prints `Hello here doc!` &#x20;
+
+#### Example 2
+
+```bash
 python3 - << 'EOF' | cat
 import sys
 sys.stdout.write("12345678")
 EOF
 ```
 
-* Simply prints `12345678`
+* Prints `12345678`
 
-#### Example 2
+#### Example 3
 
 ```bash
 python3 - << 'EOF' >> outfile
@@ -63,7 +68,7 @@ sys.stdout.write("12345678")
 EOF
 ```
 
-* Simply appends `12345678` to the output file `outfile`
+* Appends `12345678` to the output file `outfile`
 
 ```bash
 $ cat outfile
