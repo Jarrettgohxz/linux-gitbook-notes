@@ -17,14 +17,18 @@
 
 * [spool](spool.md)
 
-## 🔧 bash
+## bash/shell scripting
 
-* [overview](bash/overview.md)
-* [redirection](bash/redirection.md)
-* [loop](bash/loop.md)
-* [.bashrc](bash/.bashrc.md)
-* [scripting](bash/scripting/README.md)
-  * [Web fuzzing](bash/scripting/web-fuzzing.md)
+* [Overview](bash-shell-scripting/overview.md)
+* [Shell scripting](bash-shell-scripting/shell-scripting/README.md)
+  * [Here Doc, Here Strings](bash-shell-scripting/shell-scripting/here-doc-here-strings.md)
+  * [I/O redirection](bash-shell-scripting/shell-scripting/redirection/README.md)
+    * [stdin, stdout & stderr](bash-shell-scripting/shell-scripting/redirection/stdin-stdout-and-stderr.md)
+    * [Operators](bash-shell-scripting/shell-scripting/redirection/operators.md)
+  * [Loop](bash-shell-scripting/shell-scripting/loop.md)
+  * [Examples](bash-shell-scripting/shell-scripting/examples/README.md)
+    * [Web fuzzing](bash-shell-scripting/shell-scripting/examples/web-fuzzing.md)
+* [.bashrc](bash-shell-scripting/.bashrc.md)
 
 ## text processing
 
