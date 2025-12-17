@@ -4,7 +4,7 @@
 
 {% embed url="https://www.geeksforgeeks.org/linux-unix/how-to-use-here-document-in-bash-programming/" %}
 
-### 2.1 Basic syntax
+### 1.1 Basic syntax
 
 The here document (`<<`) can be used to pass a multi-line block of text or code to an interactive command
 
@@ -19,7 +19,7 @@ DELIMITER
 END
 ```
 
-### 2.11 Example with `cat`
+### 1.11 Example with `cat`
 
 ```bash
 cat << END
@@ -27,13 +27,13 @@ cat << END
 END
 ```
 
-### 2.12 Example with `python3`
+### 1.12 Example with `python3`
 
-#### 2.121 Explanation of Python3 features and functions used
+#### Explanation of Python3 features and functions used
 
 a. `python3 -`&#x20;
 
-> When the script name is given as `'-'` (meaning standard input)
+> When the script name is given as `'-'`, it refers to the standard input          &#x20;
 
 {% embed url="https://docs.python.org/3/tutorial/interpreter.html?utm_source=chatgpt.com" %}
 
@@ -43,7 +43,7 @@ b. `sys.stdout.write`&#x20;
 
 {% embed url="https://docs.python.org/3/library/sys.html" %}
 
-#### 2.122 Example 1
+#### Example 1
 
 ```bash
 python3 - << 'EOF' | cat
@@ -54,7 +54,7 @@ EOF
 
 * Simply prints `12345678`
 
-#### 2.123 Example 2
+#### Example 2
 
 ```bash
 python3 - << 'EOF' >> outfile
