@@ -46,7 +46,7 @@ print("Hello here doc!")
 EOF
 ```
 
-* Prints `Hello here doc!` &#x20;
+* Prints `Hello here doc!`
 
 #### Example 2
 
@@ -57,7 +57,9 @@ sys.stdout.write("12345678")
 EOF
 ```
 
-* Prints `12345678`
+* The _here-document_ will feed text into _stdin_ **of** `python3`&#x20;
+* The pipe **(`|`**) performs the following: _stdout_ of `python3` -> stdin of `cat`
+  * Prints `12345678`
 
 #### Example 3
 
@@ -68,7 +70,9 @@ sys.stdout.write("12345678")
 EOF
 ```
 
-* Appends `12345678` to the output file `outfile`
+* The _here-document_ will feed text into _stdin_ **of** `python3`&#x20;
+* The redirection (`>>`) will append the _stdout_ of `python3` to the file `outfile`
+  * Appends `12345678` to the file
 
 ```bash
 $ cat outfile
