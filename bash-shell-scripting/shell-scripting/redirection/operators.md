@@ -37,3 +37,52 @@ The reason being that the shell interprets the values from left to right.&#x20;
 2. `> dirlist`: Redirect _stdout_ to the `dirlist` file
 
 * Overall, _stderr_ points to the terminal, while _stdout_ points to the `dirlist` file
+
+## Operators
+
+1. `>`: overwrite data in file
+
+```bash
+$ cat list.txt
+bye
+
+$ echo "hello" > list.txt
+
+$ cat list.txt
+hello
+```
+
+* Notice that the text **bye** is replaced by **hello**
+
+2. `>>` : append data to file
+
+```bash
+$ cat list.txt
+bye
+
+$ echo "hello" >> list.txt
+
+$ cat list.txt
+bye 
+hello
+```
+
+* Notice that the text **hello** is appended to the file without overwriting the text **bye**
+
+3. `<`: read from file
+
+```bash
+$ cat list.txt
+bye
+hello
+
+$ wc -w < list.txt
+2
+```
+
+4. Pipe (`|`): redirect _stdout_  from one process to the _stdin_ of another
+
+```bash
+$ cat list.txt | wc -w
+2
+```
