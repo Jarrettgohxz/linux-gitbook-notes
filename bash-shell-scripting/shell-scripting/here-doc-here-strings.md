@@ -122,7 +122,7 @@ done &#x3C;&#x3C;&#x3C; $(echo ${Arr[*]}) <a data-footnote-ref href="#user-conte
 </code></pre>
 
 * Notice that even with the `>> outfile`  command the data is not actually written to the file, but instead printed on the terminal
-  * This is due to the `1>&2` command redirecting _stdin_ to _stderr_
+  * This is due to the `1>&2` command redirecting _stdout_ to _stderr_
   * The value in stderr will be printed on the terminal
 * The file `outfile` will be empty
 
@@ -142,7 +142,7 @@ done <<< $(echo ${Arr[*]}) &>/dev/null
 ```
 
 * Notice that the output is empty
-  * This is due to the `&>/dev/null` command at the end which redirect all the _stdin_ and _stderr_ to the `/dev/null` file
+  * This is due to the `&>/dev/null` command at the end which redirect all the _stout_ and _stderr_ to the `/dev/null` file
 
 {% embed url="https://jarrettgxz-sec.gitbook.io/linux/general/dev-null" %}
 
