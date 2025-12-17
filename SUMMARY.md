@@ -23,7 +23,7 @@
 * [Shell scripting](bash-shell-scripting/shell-scripting/README.md)
   * [Here Doc, Here Strings](bash-shell-scripting/shell-scripting/here-doc-here-strings.md)
   * [I/O redirection](bash-shell-scripting/shell-scripting/redirection/README.md)
-    * [stdin, stdout & stderr](bash-shell-scripting/shell-scripting/redirection/stdin-stdout-and-stderr.md)
+    * [stdin, stderr, stdout](bash-shell-scripting/shell-scripting/redirection/stdin-stderr-stdout.md)
     * [Operators](bash-shell-scripting/shell-scripting/redirection/operators.md)
   * [Loop](bash-shell-scripting/shell-scripting/loop.md)
   * [Examples](bash-shell-scripting/shell-scripting/examples/README.md)
