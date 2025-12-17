@@ -38,8 +38,6 @@ b. `sys.stdout.write`&#x20;
 
 {% embed url="https://docs.python.org/3/library/sys.html" %}
 
-#### Example 1
-
 ```bash
 python3 - << 'EOF' 
 print("Hello here doc!")
@@ -47,8 +45,6 @@ EOF
 ```
 
 * Prints `Hello here doc!`
-
-#### Example 2
 
 ```bash
 python3 - << 'EOF' | cat
@@ -60,8 +56,6 @@ EOF
 * The _here-document_ will feed text into _stdin_ **of** `python3`&#x20;
 * The pipe **(`|`**) performs the following: _stdout_ of `python3` -> stdin of `cat`
   * Prints `12345678`
-
-#### Example 3
 
 ```bash
 python3 - << 'EOF' >> outfile
@@ -78,6 +72,81 @@ EOF
 $ cat outfile
 12345678
 ```
+
+### 1.13 Example with while loop + read
+
+```bash
+Arr=(0 1 2 {A..D}) #  (0 1 2 A B C D)
+
+while read element ; do
+  echo "$element" 
+done <<< $(echo ${Arr[*]}) 
+
+# output: 0 1 2 A B C D
+```
+
+* Print each value in the array from &#x73;_&#x74;dout_
+  * `echo` prints to the _stdout_ (**fd 1**)
+
+<pre class="language-bash"><code class="lang-bash">Arr=(0 1 2 {A..D}) #  (0 1 2 A B C D)
+
+while read element ; do
+  echo "$element" <a data-footnote-ref href="#user-content-fn-1">1>&#x26;2</a> # >&#x26;2 works too since `>` defaults to stdout (fd 1)
+done &#x3C;&#x3C;&#x3C; $(echo ${Arr[*]}) 
+
+# output: 0 1 2 A B C D
+</code></pre>
+
+* Print each value in the array from _stderr_
+  * `1>&2` redirects _stdout_ to _stderr_
+
+<pre class="language-bash"><code class="lang-bash">Arr=(0 1 2 {A..D}) #  (0 1 2 A B C D)
+
+while read element ; do
+  echo "$element" 
+done &#x3C;&#x3C;&#x3C; $(echo ${Arr[*]}) <a data-footnote-ref href="#user-content-fn-2">>> outfile</a>
+
+# output: empty
+</code></pre>
+
+* `>> outfile` append _stdout_ to the `outfile` file
+  * The file `outfile` will contain the value: **0 1 2 A B C D**
+
+<pre class="language-bash"><code class="lang-bash">Arr=(0 1 2 {A..D}) #  (0 1 2 A B C D)
+
+while read element ; do
+  echo "$element" <a data-footnote-ref href="#user-content-fn-1">1>&#x26;2</a> # >&#x26;2 works too since `>` defaults to stdout (fd 1) 
+done &#x3C;&#x3C;&#x3C; $(echo ${Arr[*]}) <a data-footnote-ref href="#user-content-fn-2">>> outfile</a>
+
+# output: 0 1 2 A B C D
+</code></pre>
+
+* Notice that even with the `>> outfile`  command the data is not actually written to the file, but instead printed on the terminal
+  * This is due to the `1>&2` command redirecting _stdin_ to _stderr_
+  * The value in stderr will be printed on the terminal
+* The file `outfile` will be empty
+
+```bash
+# without 1>&2
+while read element ; do
+  echo "$element"  
+done <<< $(echo ${Arr[*]}) &>/dev/null
+
+# output: empty
+
+while read element ; do
+  echo "$element" 1>&2
+done <<< $(echo ${Arr[*]}) &>/dev/null
+
+# output: empty
+```
+
+* Notice that the output is empty
+  * This is due to the `&>/dev/null` command at the end which redirect all the _stdin_ and _stderr_ to the `/dev/null` file
+
+{% embed url="https://jarrettgxz-sec.gitbook.io/linux/general/dev-null" %}
+
+
 
 ## 2. Here Strings
 
@@ -111,3 +180,8 @@ echo $DATA | tr -d 'e'
 tr -d 'e' <<< $DATA 
 ```
 
+
+
+[^1]: redirect stdout to stderr
+
+[^2]: append to `outfile`
