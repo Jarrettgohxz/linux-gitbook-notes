@@ -28,7 +28,7 @@ END
 
 a. `python3 -`&#x20;
 
-> When the script name is given as `'-'`, it refers to the standard input          &#x20;
+> When the script name is given as `'-'`, it refers to the standard input
 
 {% embed url="https://docs.python.org/3/tutorial/interpreter.html?utm_source=chatgpt.com" %}
 
@@ -84,8 +84,8 @@ $ cat outfile
 &#x20;The here string (`<<<`) command is used for input redirection from a text or variable
 
 ```bash
-[COMMAND] <<< 'string'
-[COMMAND] <<< $DATA
+[COMMAND] <<< 'string' # from text
+[COMMAND] <<< $DATA # from variable
 ```
 
 #### 2.12 Input redirection from a text
