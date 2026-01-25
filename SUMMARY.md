@@ -4,6 +4,7 @@
 
 ## 🖇️ general
 
+* [useful commands](general/useful-commands.md)
 * [essentials](general/essentials.md)
 * [other commands](general/other-commands.md)
 * [Superuser-do (sudo)](general/superuser-do-sudo.md)
