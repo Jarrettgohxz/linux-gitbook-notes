@@ -4,10 +4,11 @@ description: Curated list of useful commands for different use cases
 
 # useful commands
 
-1. **Get PID of process**&#x20;
+### 1. Get PID of process
 
-* Started with command
-* Listening or established on certain service port
+* Process with the following status:
+  * Started with command
+  * Listening or established on certain service port
 
 ```shellscript
 $ pgrep -a <command>
@@ -22,7 +23,7 @@ $ lsof -i4 -P -n | grep LISTENING | grep :22
 $ lsof -i4 -P -n | grep  ESTABLISHED | grep :22
 ```
 
-2. **Common process kill signals**
+### 2. Process kill signals
 
 ```shellscript
  # SIGTERM (15) - graceful stop
@@ -41,10 +42,58 @@ $ lsof -i4 -P -n | grep  ESTABLISHED | grep :22
  $ kill -2 <pid>
 ```
 
-3. **Transfer files between hosts**
+### 3. Transfer file(s) between 2 hosts
 
+#### 3.1 Netcat
+
+* Single file
+
+```shellscript
+# sender
+$ nc <receiver_ip> <port>  < file
+# receiver
+$ nc -lp <port> > file
 ```
+
+* Multiple files with the same extension
+
+```shellscript
+# sender
+$ tar -cvf - *.ext | nc <receiver_ip> <port>
+# receiver
+$ nc -lp <port> | tar -xvf - 
 ```
 
+#### 3.2 Secure Copy Protocol (`scp`)
 
+> Optionally use the `-P` flag to specify the port on the remote host to connect to
+
+* Single file
+
+```shellscript
+# transfer from remote host to local directory
+$ scp <user>@<remote_host>:/path/to/source/<file> .
+# transfer from local directory to remote host
+ scp <file> <user>@<remote_host>:/path/to/destination/
+```
+
+* Multiple files with the same extension
+
+```shellscript
+# transfer from remote host to local directory
+$ scp <user>@<remote_host>:/path/to/source/*.ext .
+# transfer from local directory to remote host
+$ scp *.ext <user>@<remote_host>:/path/to/destination/
+```
+
+#### 3.3 wget + Python3 server
+
+* Single file
+
+```shellscript
+# sender
+$ python3 -m http.server <port>
+# receiver
+$ wget http://<sender_ip>:<port>/<file> -O /path/to/output
+```
 
