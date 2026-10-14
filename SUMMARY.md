@@ -4,6 +4,7 @@
 
 ## 🖇️ general
 
+* [Learning guide](general/learning-guide.md)
 * [useful commands](general/useful-commands.md)
 * [essentials](general/essentials.md)
 * [other commands](general/other-commands.md)
